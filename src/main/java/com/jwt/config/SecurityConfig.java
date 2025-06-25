@@ -49,5 +49,16 @@ public DaoAuthenticationProvider daoAuthenticationProvider() {
 	Provider.setPasswordEncoder(passwordEncoder);
 	return Provider;
 }
+@Bean
+public org.springframework.web.cors.CorsConfigurationSource corsConfigurationSource() {
+    org.springframework.web.cors.CorsConfiguration configuration = new org.springframework.web.cors.CorsConfiguration();
+    configuration.setAllowedOrigins(List.of("https://your-frontend.netlify.app")); // Replace with your real Netlify URL
+    configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+    configuration.setAllowedHeaders(List.of("*"));
+    configuration.setAllowCredentials(true);
 
+    org.springframework.web.cors.UrlBasedCorsConfigurationSource source = new org.springframework.web.cors.UrlBasedCorsConfigurationSource();
+    source.registerCorsConfiguration("/**", configuration);
+    return source;
+}
 }
