@@ -13,6 +13,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.jwt.security.JwtAuthenticationEntryPoint;
 import com.jwt.security.JwtAuthenticationFilter;
+import java.util.List;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.cors.CorsConfigurationSource;
+
 
 @Configuration
 public class SecurityConfig {
